@@ -34,23 +34,23 @@ app.post('/git-command', (req, res) => {
   // Construct the Git command based on preselect and additional command
   switch (preselect) {
     case 'clone':
-      gitCommand = `git clone ${parameter1}`;
+      gitCommand = `clone ${parameter1}`;
       break;
     case 'stash':
-      gitCommand = 'git stash';
+      gitCommand = 'stash';
       break;
     case 'stash-apply':
-      gitCommand = 'git stash apply';
+      gitCommand = 'stash apply';
       break;
     case 'pull':
       if (!parameter1) {
-        gitCommand = 'git pull origin main'; // Default to pulling from 'main'
+        gitCommand = 'pull origin main'; // Default to pulling from 'main'
       } else {
-        gitCommand = `git pull origin ${parameter1}`; // Pull from the specified branch
+        gitCommand = `pull origin ${parameter1}`; // Pull from the specified branch
       }
       break;
     case 'logs':
-      gitCommand = 'git log';
+      gitCommand = 'log';
       break;
     default:
       gitCommand = preselect; // Use the preselect as a custom command
