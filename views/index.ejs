@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Git Command Runner</title>
+</head>
+<body>
+  <h1>Git Command Runner</h1>
+  
+  <% if (message) { %>
+    <div><%= message %></div>
+  <% } %>
+  
+  <form method="post" action="/git-command">
+    <label>
+      Enter Directory (optional):
+      <input type="text" name="directory">
+    </label>
+    <br>
+    <label>
+      Preselect Command:
+      <select name="preselect">
+        <option value="clone">git clone</option>
+        <option value="stash">git stash</option>
+        <option value="stash-apply">git stash apply</option>
+        <option value="pull">git pull origin</option>
+        <option value="logs">git log</option>
+      </select>
+    </label>
+    <br>
+    <label>
+      Additional Parameters (optional):
+      <input type="text" name="parameter1">
+    </label>
+    <br>
+    <label>
+      Use sudo for Git commands:
+      <input type="checkbox" name="useSudo" value="true">
+    </label>
+    <br>
+    <!-- <label>
+      Enter Additional Command (optional):
+      <input type="text" name="additionalCommand">
+    </label>
+    <br> -->
+    <button type="submit">Run Command</button>
+  </form>
+  
+  <% if (output) { %>
+    <h2>Command Output:</h2>
+    <pre><%= output %></pre>
+  <% } %>
+</body>
+</html>
